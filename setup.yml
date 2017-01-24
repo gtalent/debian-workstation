@@ -2,17 +2,25 @@
   tasks:
 
     # setup yum repos
+
     - name: RPM Fusion - Free
       dnf:
         name: 'https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-25.noarch.rpm'
         state: present
+
     - name: RPM Fusion - Non-free
       dnf:
         name: 'https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-25.noarch.rpm'
         state: present
+
     - name: Google Chrome Repository
       dnf:
         name: 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
+        state: present
+
+    - name: Slack Repository
+      dnf:
+        name: 'https://downloads.slack-edge.com/linux_releases/slack-2.4.2-0.1.fc21.x86_64.rpm'
         state: present
 
 
@@ -31,6 +39,11 @@
     - name: Install Docker
       dnf:
         name: docker
+        state: latest
+
+    - name: Install Docker Compose
+      dnf:
+        name: docker-compose
         state: latest
 
     - name: Install Dropbox
@@ -88,6 +101,11 @@
         name: steam
         state: latest
 
+    - name: Install tig
+      dnf:
+        name: tig
+        state: latest
+
     - name: Install tmux
       dnf:
         name: tmux
@@ -105,6 +123,7 @@
 
 
     # setup users and groups
+
     - name: Docker Group
       group:
         name: docker
@@ -115,7 +134,9 @@
         groups: docker
         append: true
 
+
     # disable SELinux
+
     - name: Disable SELinux
       selinux:
         state: disabled
