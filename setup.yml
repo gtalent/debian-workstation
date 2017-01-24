@@ -18,9 +18,14 @@
         name: 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
         state: present
 
-    - name: Slack Repository
+    - name: Slack
       dnf:
         name: 'https://downloads.slack-edge.com/linux_releases/slack-2.4.2-0.1.fc21.x86_64.rpm'
+        state: present
+
+    - name: ZFS
+      dnf:
+        name: 'http://download.zfsonlinux.org/fedora/zfs-release.fc25.noarch.rpm'
         state: present
 
 
@@ -115,6 +120,12 @@
       dnf:
         name: vim-X11
         state: latest
+
+    - name: Install ZFS
+      dnf:
+        name: zfs
+        state: latest
+
 
     - name: Install ZSH
       dnf:
