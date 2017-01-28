@@ -36,6 +36,16 @@
         name: ansible
         state: latest
 
+    - name: Install cargo
+      dnf:
+        name: cargo
+        state: latest
+
+    - name: Install clang
+      dnf:
+        name: clang
+        state: latest
+
     - name: Install CTags
       dnf:
         name: ctags
@@ -74,6 +84,11 @@
     - name: Install Google Chrome
       dnf:
         name: google-chrome
+        state: latest
+
+    - name: Install jq
+      dnf:
+        name: jq
         state: latest
 
     - name: Install kernel-devel
