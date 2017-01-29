@@ -86,6 +86,11 @@
         name: google-chrome
         state: latest
 
+    - name: Install Java
+      dnf:
+        name: java-1.8.0-openjdk
+        state: latest
+
     - name: Install jq
       dnf:
         name: jq
