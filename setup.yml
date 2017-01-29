@@ -101,6 +101,11 @@
         name: libselinux-python
         state: latest
 
+    - name: Install npm
+      dnf:
+        name: npm
+        state: latest
+
     - name: Install Qt 5 Devel
       dnf:
         name: qt5-devel
@@ -131,6 +136,11 @@
         name: tig
         state: latest
 
+    - name: Install tarsnap
+      dnf:
+        name: tarsnap
+        state: latest
+
     - name: Install tmux
       dnf:
         name: tmux
@@ -146,11 +156,17 @@
         name: zfs
         state: latest
 
-
     - name: Install ZSH
       dnf:
         name: zsh
         state: latest
+
+
+    # pip packages
+
+    - name: yq - YAML Query
+      pip:
+        name: yq
 
 
     # setup users and groups
