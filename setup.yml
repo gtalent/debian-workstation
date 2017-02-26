@@ -111,6 +111,16 @@
         name: npm
         state: latest
 
+    - name: Install pandoc
+      dnf:
+        name: pandoc
+        state: latest
+
+    - name: Install python-netaddr
+      dnf:
+        name: python-netaddr
+        state: latest
+
     - name: Install Qt 5 Devel
       dnf:
         name: qt5-devel
@@ -136,6 +146,11 @@
         name: steam
         state: latest
 
+    - name: Install sudo
+      dnf:
+        name: sudo
+        state: latest
+
     - name: Install tig
       dnf:
         name: tig
@@ -151,7 +166,12 @@
         name: tmux
         state: latest
 
-    - name: Install Vim
+    - name: Install vim-enhanced
+      dnf:
+        name: vim-enhanced
+        state: latest
+
+    - name: Install vim-X11
       dnf:
         name: vim-X11
         state: latest
@@ -187,6 +207,17 @@
         append: true
 
 
+    - name: libvirt Group
+      group:
+        name: libvirt
+        state: present
+    - name: Add gary to libvirt
+      user:
+        name: gary
+        groups: libvirt
+        append: true
+
+
     # disable SELinux
 
     - name: Disable SELinux
@@ -198,14 +229,14 @@
 
     - name: Clear /etc/vimrc
       copy:
-        src: vimrc
+        src: etc/vimrc
         dest: /etc/vimrc
         mode: 0644
         force: yes
 
     - name: Install /etc/sudoers
       copy:
-        src: sudoers
+        src: etc/sudoers
         dest: /etc/sudoers
         mode: 0644
         force: yes
