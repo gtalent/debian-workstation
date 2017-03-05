@@ -218,6 +218,22 @@
         append: true
 
 
+    # services
+
+    - name: Enable SSH Daemon
+      service:
+        name: sshd
+        enabled: yes
+        state: started
+
+
+    - name: Enable Docker Daemon
+      service:
+        name: docker
+        enabled: yes
+        state: started
+
+
     # disable SELinux
 
     - name: Disable SELinux
