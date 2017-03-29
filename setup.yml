@@ -157,6 +157,11 @@
         name: steam
         state: latest
 
+    - name: Install sudo
+      dnf:
+        name: sudo
+        state: latest
+
     - name: Install tig
       dnf:
         name: tig
@@ -178,7 +183,12 @@
         name: unixODBC-devel
         state: latest
 
-    - name: Install Vim
+    - name: Install vim-enhanced
+      dnf:
+        name: vim-enhanced
+        state: latest
+
+    - name: Install vim-X11
       dnf:
         name: vim-X11
         state: latest
@@ -246,6 +256,22 @@
         append: true
 
 
+    # services
+
+    - name: Enable SSH Daemon
+      service:
+        name: sshd
+        enabled: yes
+        state: started
+
+
+    - name: Enable Docker Daemon
+      service:
+        name: docker
+        enabled: yes
+        state: started
+
+
     # disable SELinux
 
     - name: Disable SELinux
@@ -257,14 +283,14 @@
 
     - name: Clear /etc/vimrc
       copy:
-        src: vimrc
+        src: etc/vimrc
         dest: /etc/vimrc
         mode: 0644
         force: yes
 
     - name: Install /etc/sudoers
       copy:
-        src: sudoers
+        src: etc/sudoers
         dest: /etc/sudoers
         mode: 0644
         force: yes
