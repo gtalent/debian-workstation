@@ -36,6 +36,11 @@
         name: ansible
         state: latest
 
+    - name: Install bzr
+      dnf:
+        name: bzr
+        state: latest
+
     - name: Install cargo
       dnf:
         name: cargo
@@ -111,6 +116,22 @@
         name: npm
         state: latest
 
+    - name: Install pandoc
+      dnf:
+        name: pandoc
+        state: latest
+
+    # needed for OpenLP development
+    - name: Install python-devel
+      dnf:
+        name: python-devel
+        state: latest
+
+    - name: Install python-netaddr
+      dnf:
+        name: python-netaddr
+        state: latest
+
     - name: Install Qt 5 Devel
       dnf:
         name: qt5-devel
@@ -151,9 +172,20 @@
         name: tmux
         state: latest
 
+    # needed for OpenLP development
+    - name: Install unixODBC-devel
+      dnf:
+        name: unixODBC-devel
+        state: latest
+
     - name: Install Vim
       dnf:
         name: vim-X11
+        state: latest
+
+    - name: Install vlc
+      dnf:
+        name: vlc
         state: latest
 
     - name: Install ZFS
@@ -174,6 +206,22 @@
         name: yq
 
 
+    # services
+
+    - name: Enable SSH Daemon
+      service:
+        name: sshd
+        enabled: yes
+        state: started
+
+
+    - name: Enable Docker Daemon
+      service:
+        name: docker
+        enabled: yes
+        state: started
+
+
     # setup users and groups
 
     - name: Docker Group
@@ -184,6 +232,17 @@
       user:
         name: gary
         groups: docker
+        append: true
+
+
+    - name: libvirt Group
+      group:
+        name: libvirt
+        state: present
+    - name: Add gary to libvirt
+      user:
+        name: gary
+        groups: libvirt
         append: true
 
 
