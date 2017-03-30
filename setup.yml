@@ -1,6 +1,31 @@
 - hosts: all
   tasks:
 
+
+    # setup config files
+
+    - name: Clear /etc/vimrc
+      copy:
+        src: etc/vimrc
+        dest: /etc/vimrc
+        mode: 0644
+        force: yes
+
+    - name: Install /etc/sudoers
+      copy:
+        src: etc/sudoers
+        dest: /etc/sudoers
+        mode: 0644
+        force: yes
+
+    - name: Install /etc/yum.repos.d
+      copy:
+        src: etc/yum.repos.d/slack.repo
+        dest: /etc/yum.repos.d/slack.repo
+        mode: 0644
+        force: yes
+
+
     # setup yum repos
 
     - name: RPM Fusion - Free
@@ -16,11 +41,6 @@
     - name: Google Chrome Repository
       dnf:
         name: 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
-        state: present
-
-    - name: Slack
-      dnf:
-        name: 'https://downloads.slack-edge.com/linux_releases/slack-2.4.2-0.1.fc21.x86_64.rpm'
         state: present
 
     - name: ZFS
@@ -141,6 +161,16 @@
         name: rsync
         state: latest
 
+    - name: Install samba
+      dnf:
+        name: samba
+        state: latest
+
+    - name: Install slack
+      dnf:
+        name: slack
+        state: latest
+
     - name: Install steam
       dnf:
         name: steam
@@ -239,20 +269,3 @@
     - name: Disable SELinux
       selinux:
         state: disabled
-
-
-    # setup config files
-
-    - name: Clear /etc/vimrc
-      copy:
-        src: etc/vimrc
-        dest: /etc/vimrc
-        mode: 0644
-        force: yes
-
-    - name: Install /etc/sudoers
-      copy:
-        src: etc/sudoers
-        dest: /etc/sudoers
-        mode: 0644
-        force: yes
