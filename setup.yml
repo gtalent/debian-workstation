@@ -136,6 +136,11 @@
         name: pandoc
         state: latest
 
+    - name: Install polari
+      dnf:
+        name: polari
+        state: latest
+
     - name: Install python-netaddr
       dnf:
         name: python-netaddr
@@ -206,6 +211,11 @@
         name: vim-X11
         state: latest
 
+    - name: Install vlc
+      dnf:
+        name: vlc
+        state: latest
+
     - name: Install ZFS
       dnf:
         name: zfs
@@ -222,6 +232,22 @@
     - name: yq - YAML Query
       pip:
         name: yq
+
+
+    # services
+
+    - name: Enable SSH Daemon
+      service:
+        name: sshd
+        enabled: yes
+        state: started
+
+
+    - name: Enable Docker Daemon
+      service:
+        name: docker
+        enabled: yes
+        state: started
 
 
     # setup users and groups
