@@ -36,11 +36,6 @@
         name: ansible
         state: latest
 
-    - name: Install bzr
-      dnf:
-        name: bzr
-        state: latest
-
     - name: Install cargo
       dnf:
         name: cargo
@@ -121,10 +116,9 @@
         name: pandoc
         state: latest
 
-    # needed for OpenLP development
-    - name: Install python-devel
+    - name: Install polari
       dnf:
-        name: python-devel
+        name: polari
         state: latest
 
     - name: Install python-netaddr
@@ -175,12 +169,6 @@
     - name: Install tmux
       dnf:
         name: tmux
-        state: latest
-
-    # needed for OpenLP development
-    - name: Install unixODBC-devel
-      dnf:
-        name: unixODBC-devel
         state: latest
 
     - name: Install vim-enhanced
