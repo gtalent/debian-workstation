@@ -56,6 +56,11 @@
         name: ansible
         state: latest
 
+    - name: Install bzr
+      dnf:
+        name: bzr
+        state: latest
+
     - name: Install cargo
       dnf:
         name: cargo
@@ -121,9 +126,19 @@
         name: kernel-devel
         state: latest
 
+    - name: Install llvm
+      dnf:
+        name: llvm
+        state: latest
+
     - name: Install libselinux-python
       dnf:
         name: libselinux-python
+        state: latest
+
+    - name: Install ninja
+      dnf:
+        name: ninja-build
         state: latest
 
     - name: Install npm
@@ -151,14 +166,19 @@
         name: qt5-devel
         state: latest
 
+    - name: Install qtcreator
+      dnf:
+        name: qtcreator
+        state: latest
+
     - name: Install redshift-gtk
       dnf:
         name: redshift-gtk
         state: latest
 
-    - name: Install qtcreator
+    - name: Install remmina
       dnf:
-        name: qtcreator
+        name: remmina
         state: latest
 
     - name: Install rsync
@@ -262,7 +282,6 @@
         groups: docker
         append: true
 
-
     - name: libvirt Group
       group:
         name: libvirt
@@ -281,7 +300,6 @@
         name: sshd
         enabled: yes
         state: started
-
 
     - name: Enable Docker Daemon
       service:
