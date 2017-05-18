@@ -17,7 +17,6 @@
     - name: Tarsnap Repository
       apt_repository:
         repo: "deb http://pkg.tarsnap.com/deb/stretch ./"
-        filename: google-chrome
         state: present
 
     - name: Chrome Repository Key
