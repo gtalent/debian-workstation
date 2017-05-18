@@ -20,6 +20,16 @@
         repo: "deb http://ftp.us.debian.org/debian  stretch contrib non-free"
         state: present
 
+    - name: Tarsnap Repository Key
+      apt_key:
+        url: https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+        state: present
+    - name: Tarsnap Repository
+      apt_repository:
+        repo: "deb http://pkg.tarsnap.com/deb/stretch ./"
+        filename: google-chrome
+        state: present
+
     - name: Chrome Repository Key
       apt_key:
         url: https://dl-ssl.google.com/linux/linux_signing_key.pub
@@ -182,15 +192,15 @@
         name: syncthing
         state: latest
 
+    - name: Install tarsnap
+      apt:
+        name: tarsnap
+        state: latest
+
     - name: Install tig
       apt:
         name: tig
         state: latest
-
-        #    - name: Install tarsnap
-        #      apt:
-        #        name: tarsnap
-        #        state: latest
 
     - name: Install tmux
       apt:
