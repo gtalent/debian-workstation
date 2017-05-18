@@ -5,16 +5,6 @@
         name: apt-transport-https
         state: latest
 
-    # setup repos
-    #- name: Dropbox Repository Key
-    #  apt_key:
-    #    keyserver: pgp.mit.edu
-    #    id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
-    #- name: Dropbox Repository
-    #  apt_repository:
-    #    repo: deb http://linux.dropbox.com/debian stretch main
-    #    state: present
-
     - name: "Contrib, Non-free"
       apt_repository:
         repo: "deb http://ftp.us.debian.org/debian  stretch contrib non-free"
@@ -86,11 +76,6 @@
       apt:
         name: docker-compose
         state: latest
-
-        #    - name: Install Dropbox
-        #      apt:
-        #        name: dropbox
-        #        state: latest
 
     - name: Install Git
       apt:
