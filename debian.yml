@@ -7,7 +7,7 @@
 
     - name: "Contrib, Non-free"
       apt_repository:
-        repo: "deb http://ftp.us.debian.org/debian  stretch contrib non-free"
+        repo: "deb http://ftp.us.debian.org/debian stretch contrib non-free"
         state: present
 
     - name: Tarsnap Repository Key
