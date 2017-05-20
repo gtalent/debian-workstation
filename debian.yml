@@ -76,6 +76,11 @@
         name: docker-compose
         state: latest
 
+    - name: Install firmware-iwlwifi
+      apt:
+        name: firmware-iwlwifi
+        state: latest
+
     - name: Install Git
       apt:
         name: git
