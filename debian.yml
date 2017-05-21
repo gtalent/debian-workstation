@@ -161,6 +161,11 @@
         name: samba
         state: latest
 
+    - name: Install sl
+      apt:
+        name: sl
+        state: latest
+
         #    - name: Install slack
         #      apt:
         #        name: slack
