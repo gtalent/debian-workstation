@@ -1,0 +1,254 @@
+- hosts: all
+  tasks:
+    - name: Install apt-transport-https
+      apt:
+        name: apt-transport-https
+        state: latest
+
+    - name: "deb security.debian.org/debian-security"
+      apt_repository:
+        repo: "deb http://security.debian.org/debian-security stretch/updates contrib non-free"
+        state: present
+
+    - name: "deb-src security.debian.org/debian-security"
+      apt_repository:
+        repo: "deb-src http://security.debian.org/debian-security stretch/updates contrib non-free"
+        state: present
+
+    - name: "deb Contrib, Non-free"
+      apt_repository:
+        repo: "deb http://ftp.us.debian.org/debian stretch contrib non-free"
+        state: present
+
+    - name: "deb-src Contrib, Non-free"
+      apt_repository:
+        repo: "deb-src http://ftp.us.debian.org/debian stretch contrib non-free"
+        state: present
+
+    - name: Tarsnap Repository Key
+      apt_key:
+        url: https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+        state: present
+    - name: Tarsnap Repository
+      apt_repository:
+        repo: "deb http://pkg.tarsnap.com/deb/stretch ./"
+        state: present
+
+    - name: Chrome Repository Key
+      apt_key:
+        url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+        state: present
+    - name: Chrome Repository
+      apt_repository:
+        repo: "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+        filename: google-chrome
+        state: present
+
+    - name: Docker Repository Key
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+    - name: Docker Repository
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
+        state: present
+
+    # update system
+    - name: Update | Update System
+      apt:
+        upgrade: dist
+        update_cache: true
+
+    # install packages
+
+    - name: Install Ansible
+      apt:
+        name: ansible
+        state: latest
+
+    - name: Install bzr
+      apt:
+        name: bzr
+        state: latest
+
+    - name: Install clang
+      apt:
+        name: clang
+        state: latest
+
+    - name: Install CTags
+      apt:
+        name: ctags
+        state: latest
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: latest
+
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: latest
+
+    - name: Install firmware-iwlwifi
+      apt:
+        name: firmware-iwlwifi
+        state: latest
+
+    - name: Install Git
+      apt:
+        name: git
+        state: latest
+
+    - name: Install gnome-tweak-tool
+      apt:
+        name: gnome-tweak-tool
+        state: latest
+
+    - name: Install Go
+      apt:
+        name: golang
+        state: latest
+
+    - name: Install Google Chrome
+      apt:
+        name: google-chrome-stable
+        state: latest
+
+    - name: Install jq
+      apt:
+        name: jq
+        state: latest
+
+    - name: Install llvm
+      apt:
+        name: llvm
+        state: latest
+
+        #    - name: Install npm
+        #      apt:
+        #        name: npm
+        #        state: latest
+
+    - name: Install pandoc
+      apt:
+        name: pandoc
+        state: latest
+
+    - name: Install polari
+      apt:
+        name: polari
+        state: latest
+
+    - name: Install python-pip
+      apt:
+        name: python-pip
+        state: latest
+
+    - name: Install python-netaddr
+      apt:
+        name: python-netaddr
+        state: latest
+
+    - name: Install qtcreator
+      apt:
+        name: qtcreator
+        state: latest
+
+    - name: Install redshift-gtk
+      apt:
+        name: redshift-gtk
+        state: latest
+
+    - name: Install remmina
+      apt:
+        name: remmina
+        state: latest
+
+    - name: Install rsync
+      apt:
+        name: rsync
+        state: latest
+
+    - name: Install samba
+      apt:
+        name: samba
+        state: latest
+
+    - name: Install sl
+      apt:
+        name: sl
+        state: latest
+
+        #    - name: Install slack
+        #      apt:
+        #        name: slack
+        #        state: latest
+
+        #    - name: Install steam
+        #      apt:
+        #        name: steam
+        #        state: latest
+
+    - name: Install sshfs
+      apt:
+        name: sshfs
+        state: latest
+
+    - name: Install sudo
+      apt:
+        name: sudo
+        state: latest
+
+    - name: Install syncthing
+      apt:
+        name: syncthing
+        state: latest
+
+    - name: Install tarsnap
+      apt:
+        name: tarsnap
+        state: latest
+
+    - name: Install tig
+      apt:
+        name: tig
+        state: latest
+
+    - name: Install tmux
+      apt:
+        name: tmux
+        state: latest
+
+    - name: Install tree
+      apt:
+        name: tree
+        state: latest
+
+    - name: Install vim-gtk3
+      apt:
+        name: vim-gtk3
+        state: latest
+
+    - name: Install vlc
+      apt:
+        name: vlc
+        state: latest
+
+    - name: Install ZSH
+      apt:
+        name: zsh
+        state: latest
+
+    - name: Install ZFS
+      apt:
+        name: zfs-dkms
+        state: latest
+
+    - name: Install ZFS Utils
+      apt:
+        name: zfsutils-linux
+        state: latest
+
+    - include: 'general.yml'

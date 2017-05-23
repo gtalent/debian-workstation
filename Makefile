@@ -1,6 +1,7 @@
 apply:
-	ansible-playbook setup.yml -u root -i "127.0.0.1,"
+	ansible-playbook debian.yml -u root -i "127.0.0.1,"
 apply-all:
-	ansible-playbook setup.yml -u root -i "dixon,enzo,"
+	ansible-playbook debian.yml -u root -i "andraia,"
 init:
-	ansible-playbook setup.yml -u root -i "127.0.0.1," -k
+	ssh root@127.0.0.1 mkdir -p .ssh
+	cat ~/.ssh/id_rsa.pub | ssh root@127.0.0.1 "cat >> .ssh/authorized_key"
