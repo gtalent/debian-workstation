@@ -91,6 +91,11 @@
         name: nautilus-dropbox
         state: latest
 
+    - name: Install fuse-sshfs
+      dnf:
+        name: fuse-sshfs
+        state: latest
+
     - name: Install Git
       dnf:
         name: git
@@ -124,6 +129,11 @@
     - name: Install kernel-devel
       dnf:
         name: kernel-devel
+        state: latest
+
+    - name: Install libasan
+      dnf:
+        name: libasan
         state: latest
 
     - name: Install llvm
