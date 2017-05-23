@@ -74,7 +74,7 @@
 
     # install packages
 
-    - name: Install Ansible
+    - name: Install ansible
       apt:
         name: ansible
         state: latest
@@ -99,12 +99,12 @@
         name: curl
         state: latest
 
-    - name: Install Docker
+    - name: Install docker
       apt:
         name: docker-ce
         state: latest
 
-    - name: Install Docker Compose
+    - name: Install docker-compose
       apt:
         name: docker-compose
         state: latest
@@ -114,7 +114,7 @@
         name: firmware-iwlwifi
         state: latest
 
-    - name: Install Git
+    - name: Install git
       apt:
         name: git
         state: latest
@@ -129,7 +129,7 @@
         name: golang
         state: latest
 
-    - name: Install Google Chrome
+    - name: Install google-chrome-stable
       apt:
         name: google-chrome-stable
         state: latest
@@ -142,6 +142,11 @@
     - name: Install llvm
       apt:
         name: llvm
+        state: latest
+
+    - name: Install mgba-qt
+      apt:
+        name: mgba-qt
         state: latest
 
     - name: Install nodejs
@@ -254,17 +259,17 @@
         name: vlc
         state: latest
 
-    - name: Install ZSH
+    - name: Install zsh
       apt:
         name: zsh
         state: latest
 
-    - name: Install ZFS
+    - name: Install zfs-dkms
       apt:
         name: zfs-dkms
         state: latest
 
-    - name: Install ZFS Utils
+    - name: Install zfsutils-linux
       apt:
         name: zfsutils-linux
         state: latest
