@@ -76,6 +76,11 @@
         name: clang
         state: latest
 
+    - name: Install cmake
+      apt:
+        name: cmake
+        state: latest
+
     - name: Install CTags
       apt:
         name: ctags
