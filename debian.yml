@@ -25,6 +25,19 @@
         repo: "deb-src http://ftp.us.debian.org/debian stretch contrib non-free"
         state: present
 
+    - name: Node.js Repository Key
+      apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+        state: present
+    - name: Node.js Repository
+      apt_repository:
+        repo: "deb https://deb.nodesource.com/node_6.x jessie main"
+        state: present
+    - name: Node.js Src Repository
+      apt_repository:
+        repo: "deb-src https://deb.nodesource.com/node_6.x jessie main"
+        state: present
+
     - name: Tarsnap Repository Key
       apt_key:
         url: https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
@@ -61,7 +74,7 @@
 
     # install packages
 
-    - name: Install Ansible
+    - name: Install ansible
       apt:
         name: ansible
         state: latest
@@ -81,17 +94,22 @@
         name: cmake
         state: latest
 
-    - name: Install CTags
+    - name: Install ctags
       apt:
         name: ctags
         state: latest
 
-    - name: Install Docker
+    - name: Install curl
+      apt:
+        name: curl
+        state: latest
+
+    - name: Install docker
       apt:
         name: docker-ce
         state: latest
 
-    - name: Install Docker Compose
+    - name: Install docker-compose
       apt:
         name: docker-compose
         state: latest
@@ -101,7 +119,7 @@
         name: firmware-iwlwifi
         state: latest
 
-    - name: Install Git
+    - name: Install git
       apt:
         name: git
         state: latest
@@ -116,7 +134,7 @@
         name: golang
         state: latest
 
-    - name: Install Google Chrome
+    - name: Install google-chrome-stable
       apt:
         name: google-chrome-stable
         state: latest
@@ -131,10 +149,15 @@
         name: llvm
         state: latest
 
-        #    - name: Install npm
-        #      apt:
-        #        name: npm
-        #        state: latest
+    - name: Install mgba-qt
+      apt:
+        name: mgba-qt
+        state: latest
+
+    - name: Install nodejs
+      apt:
+        name: nodejs
+        state: latest
 
     - name: Install pandoc
       apt:
@@ -241,17 +264,17 @@
         name: vlc
         state: latest
 
-    - name: Install ZSH
+    - name: Install zsh
       apt:
         name: zsh
         state: latest
 
-    - name: Install ZFS
+    - name: Install zfs-dkms
       apt:
         name: zfs-dkms
         state: latest
 
-    - name: Install ZFS Utils
+    - name: Install zfsutils-linux
       apt:
         name: zfsutils-linux
         state: latest
