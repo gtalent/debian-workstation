@@ -119,6 +119,11 @@
         name: firmware-iwlwifi
         state: latest
 
+    - name: Install ftp
+      apt:
+        name: ftp
+        state: latest
+
     - name: Install git
       apt:
         name: git
