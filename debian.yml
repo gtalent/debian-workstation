@@ -119,6 +119,11 @@
         name: firmware-iwlwifi
         state: latest
 
+    - name: Install fonts-symbola
+      apt:
+        name: fonts-symbola
+        state: latest
+
     - name: Install ftp
       apt:
         name: ftp
