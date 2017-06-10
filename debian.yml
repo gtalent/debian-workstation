@@ -66,6 +66,21 @@
         repo: "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
         state: present
 
+    - name: VirtualBox Repository Key 1
+      apt_key:
+        url: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+        state: present
+    - name: VirtualBox Repository Key 2
+      apt_key:
+        url: https://www.virtualbox.org/download/oracle_vbox.asc
+        state: present
+    - name: VirtualBox Repository
+      apt_repository:
+        repo: "deb http://download.virtualbox.org/virtualbox/debian stretch contrib"
+        state: present
+
+
+
     # update system
     - name: Update | Update System
       apt:
@@ -267,6 +282,11 @@
     - name: Install tree
       apt:
         name: tree
+        state: latest
+
+    - name: Install virtualbox-5.1
+      apt:
+        name: virtualbox-5.1
         state: latest
 
     - name: Install vim-gtk3
