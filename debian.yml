@@ -219,10 +219,10 @@
         name: redshift-gtk
         state: latest
 
-    - name: Install remmina
-      apt:
-        name: remmina
-        state: latest
+    #- name: Install remmina
+    #  apt:
+    #    name: remmina
+    #    state: latest
 
     - name: Install rsync
       apt:

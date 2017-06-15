@@ -1,0 +1,20 @@
+- hosts: all
+  tasks:
+    - name: Pull Plex Image
+      docker_image:
+        name: plexinc/pms-docker:latest
+    
+    - name: Create Plex Container
+      docker_container:
+        name: Plex
+        image: plexinc/pms-docker:latest
+        state: started
+        restart_policy: always
+        network_mode: host
+        env:
+          PLEX_CLAIM: "America/North_Dakota/Center"
+        volumes:
+          - /pool0/plex/database:/config
+          - /pool0/plex/transcode:/transcode
+          - /pool0/plex/data:/data
+          - /pool0/plex/media_libraries:/media_libraries
