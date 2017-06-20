@@ -38,6 +38,16 @@
         repo: "deb-src https://deb.nodesource.com/node_6.x jessie main"
         state: present
 
+
+    - name: Syncthing Repository Key
+      apt_key:
+        url: https://syncthing.net/release-key.txt
+        state: present
+    - name: Syncthing Repository
+      apt_repository:
+        repo: "deb https://apt.syncthing.net/ syncthing stable"
+        state: present
+
     - name: Tarsnap Repository Key
       apt_key:
         url: https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
@@ -97,6 +107,11 @@
     - name: Install bzr
       apt:
         name: bzr
+        state: latest
+
+    - name: Install cifs-utils
+      apt:
+        name: cifs-utils
         state: latest
 
     - name: Install clang
