@@ -4,6 +4,8 @@ apply-all:
 	ansible-playbook debian.yml -u root -i 'andraia,'
 apply-local:
 	su -c "ansible-playbook debian.yml -u root -i '127.0.0.1,' --connection=local"
+plex-local:
+	sudo ansible-playbook plex_server.yml -u root -i '127.0.0.1,' --connection=local
 init-local:
 	su -c "mkdir -p /root/.ssh/ && cat ~gary/.ssh/id_rsa.pub >> /root/.ssh/authorized_key"
 init:

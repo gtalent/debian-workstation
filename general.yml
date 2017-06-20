@@ -86,7 +86,7 @@
 
 - name: Enable Syncthing Daemon
   service:
-    name: syncthing@gary
+    name: "syncthing@gary"
     enabled: yes
     state: started
 
