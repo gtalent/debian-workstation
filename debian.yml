@@ -194,6 +194,11 @@
         name: llvm
         state: latest
 
+    - name: Install mumble
+      apt:
+        name: mumble
+        state: latest
+
     - name: Install mgba-qt
       apt:
         name: mgba-qt
