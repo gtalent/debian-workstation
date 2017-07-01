@@ -174,11 +174,6 @@
         name: gnome-tweak-tool
         state: latest
 
-    - name: Install Go
-      apt:
-        name: golang
-        state: latest
-
     - name: Install google-chrome-stable
       apt:
         name: google-chrome-stable
@@ -238,11 +233,6 @@
       apt:
         name: redshift-gtk
         state: latest
-
-    #- name: Install remmina
-    #  apt:
-    #    name: remmina
-    #    state: latest
 
     - name: Install rsync
       apt:
