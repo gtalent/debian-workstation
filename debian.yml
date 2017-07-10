@@ -134,6 +134,11 @@
         name: curl
         state: latest
 
+    - name: Install dh-golang
+      apt:
+        name: dh-golang
+        state: latest
+
     - name: Install docker
       apt:
         name: docker-ce
@@ -187,6 +192,11 @@
     - name: Install llvm
       apt:
         name: llvm
+        state: latest
+
+    - name: Install mosh
+      apt:
+        name: mosh
         state: latest
 
     - name: Install mumble
