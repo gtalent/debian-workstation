@@ -7,6 +7,7 @@
     mode: 0644
     force: yes
   with_items:
+    - /etc/ssh/sshd_config
     - /etc/sudoers
     - /etc/vimrc
 
@@ -28,15 +29,14 @@
   with_items:
     - gary
 
-- name: general | Install home files
-  copy:
-    src: "general/files/home/{{item}}/"
-    dest: "/home/{{item}}/"
-    owner: "{{item}}"
-    group: "{{item}}"
-    mode: 0600
+- name: general | Install authroized_keys
+  authorized_key:
+    user: "{{item}}"
+    state: present
+    key: "{{ lookup('file', '/home/gary/.ssh/id_rsa.pub') }}"
   with_items:
     - gary
+    - root
 
 # services
 

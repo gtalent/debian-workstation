@@ -1,9 +1,9 @@
 apply:
-	ansible-playbook ansible/workstation.yml -u root -i "127.0.0.1,"
+	ansible-playbook ansible/all.yml -u root -i ansible/hosts
 apply-all:
-	ansible-playbook ansible/workstation.yml -u root -i 'dixon,enzo,'
+	ansible-playbook ansible/all.yml -u root -i ansible/hosts
 apply-local:
-	sudo ansible-playbook ansible/workstation.yml -u root -i '127.0.0.1,' --connection=local
+	sudo ansible-playbook ansible/all.yml -u root -i '127.0.0.1,' --connection=local
 plex-local:
 	sudo ansible-playbook plex_server.yml -u root -i '127.0.0.1,' --connection=local
 init-local:

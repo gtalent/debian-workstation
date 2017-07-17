@@ -1,0 +1,8 @@
+---
+  - hosts: workstations
+    tasks:
+    - include: 'workstation/workstation.yml'
+
+  - hosts: plex_servers
+    tasks:
+    - include: 'plex_server/plex_server.yml'

@@ -1,0 +1,8 @@
+- include: 'pkg_repos/pkg_repos.yml'
+# update system
+- name: workstation | Update System
+  apt:
+    upgrade: dist
+    update_cache: true
+- include: 'install_pkgs/install_pkgs.yml'
+- include: 'general/general.yml'
