@@ -56,4 +56,6 @@
 
 - name: install_pkgs | yq - YAML Query
   pip:
-    name: yq
+    name: "{{item}}"
+  with_items:
+    - yq
