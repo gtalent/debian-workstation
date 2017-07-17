@@ -1,9 +1,15 @@
 - hosts: all
   tasks:
-    - name: Pull Plex Image
-      docker_image:
-        name: plexinc/pms-docker:latest
-    
+    - name: Install Packages
+      apt:
+        name: "{{item}}"
+        state: latest
+      with_items:
+        - docker-ce
+        - name: Pull Plex Image
+          docker_image:
+            name: plexinc/pms-docker:latest
+
     - name: Create Plex Container
       docker_container:
         name: Plex

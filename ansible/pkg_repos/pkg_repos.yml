@@ -1,0 +1,33 @@
+- name: pkg_repos |  Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: latest
+
+- name: pkg_repos | Setup Repository Keys
+  apt_key:
+    url: "{{item}}"
+    state: present
+  with_items:
+    - https://download.docker.com/linux/debian/gpg
+    - https://dl-ssl.google.com/linux/linux_signing_key.pub
+    - https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    - https://syncthing.net/release-key.txt
+    - https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+    - https://www.virtualbox.org/download/oracle_vbox_2016.asc
+    - https://www.virtualbox.org/download/oracle_vbox.asc
+
+- name: pkg_repos | Setup Repositories
+  apt_repository:
+    repo: "{{item}}"
+    state: present
+  with_items:
+    - "deb http://security.debian.org/debian-security stretch/updates contrib non-free"
+    - "deb-src http://security.debian.org/debian-security stretch/updates contrib non-free"
+    - "deb http://ftp.us.debian.org/debian stretch contrib non-free"
+    - "deb-src http://ftp.us.debian.org/debian stretch contrib non-free"
+    - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    - "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
+    - "deb https://deb.nodesource.com/node_6.x stretch main"
+    - "deb-src https://deb.nodesource.com/node_6.x stretch main"
+    - "deb https://apt.syncthing.net/ syncthing stable"
+    - "deb http://pkg.tarsnap.com/deb/stretch ./"

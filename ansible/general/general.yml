@@ -1,0 +1,51 @@
+# setup config files
+
+- name: general | Install etc files
+  copy:
+    src: "general/files{{item}}"
+    dest: "{{item}}"
+    mode: 0644
+    force: yes
+  with_items:
+    - /etc/sudoers
+    - /etc/vimrc
+
+# setup users and groups
+
+- name: general | Setup Groups
+  group:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - docker
+    - wheel
+
+- name: general | Setup Users
+  user:
+    name: "{{item}}"
+    groups: docker,wheel
+    append: true
+  with_items:
+    - gary
+
+- name: general | Install home files
+  copy:
+    src: "general/files/home/{{item}}/"
+    dest: "/home/{{item}}/"
+    owner: "{{item}}"
+    group: "{{item}}"
+    mode: 0600
+  with_items:
+    - gary
+
+# services
+
+- name: general | Enable Daemons
+  service:
+    name: "{{item}}"
+    enabled: yes
+    state: started
+  with_items:
+    - docker
+    - sshd
+    - syncthing@gary

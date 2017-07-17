@@ -1,9 +1,9 @@
 apply:
-	ansible-playbook debian.yml -u root -i "127.0.0.1,"
+	ansible-playbook ansible/workstation.yml -u root -i "127.0.0.1,"
 apply-all:
-	ansible-playbook debian.yml -u root -i 'andraia,'
+	ansible-playbook ansible/workstation.yml -u root -i 'dixon,enzo,'
 apply-local:
-	sudo ansible-playbook debian.yml -u root -i '127.0.0.1,' --connection=local
+	sudo ansible-playbook ansible/workstation.yml -u root -i '127.0.0.1,' --connection=local
 plex-local:
 	sudo ansible-playbook plex_server.yml -u root -i '127.0.0.1,' --connection=local
 init-local:

@@ -1,0 +1,59 @@
+# install general packages
+
+- name: install_pkgs | Install Packages
+  apt:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - ansible
+    - bzr
+    - cifs-utils
+    - clang
+    - cmake
+    - ctags
+    - curl
+    - dh-golang
+    - docker-ce
+    - docker-compose
+    - firmware-iwlwifi
+    - fonts-symbola
+    - ftp
+    - git
+    - gnome-boxes
+    - gnome-tweak-tool
+    - gnome-tweak-tool
+    - jq
+    - llvm
+    - make
+    - mgba-qt
+    - mosh
+    - mumble
+    - nodejs
+    - pandoc
+    - polari
+    - python-netaddr
+    - python-pip
+    - qtcreator
+    - redshift-gtk
+    - rsync
+    - samba
+    - sl
+    - sshfs
+    - sudo
+    - syncthing
+    - tarsnap
+    - tig
+    - tmux
+    - tree
+    - vim-gtk3
+    - virtualbox-5.1
+    - vlc
+    - zfs-dkms
+    - zfsutils-linux
+    - zsh
+
+# pip packages
+
+- name: yq - YAML Query
+  pip:
+    name: yq
