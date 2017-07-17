@@ -54,6 +54,6 @@
 
 # pip packages
 
-- name: yq - YAML Query
+- name: install_pkgs | yq - YAML Query
   pip:
     name: yq
