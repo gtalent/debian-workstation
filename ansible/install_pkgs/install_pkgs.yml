@@ -23,11 +23,13 @@
     - gnome-tweak-tool
     - gnome-tweak-tool
     - jq
+    - libfuse-dev
     - llvm
     - make
     - mgba-qt
     - mosh
     - mumble
+    - nginx
     - nodejs
     - pandoc
     - polari

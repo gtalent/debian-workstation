@@ -6,6 +6,7 @@
     dest: "{{item}}"
     force: yes
   with_items:
+    - /etc/nginx/sites-enabled/syncthing.conf
     - /etc/ssh/sshd_config
     - /etc/sudoers
     - /etc/vimrc
@@ -46,5 +47,6 @@
     state: started
   with_items:
     - docker
+    - nginx
     - sshd
     - syncthing@gary

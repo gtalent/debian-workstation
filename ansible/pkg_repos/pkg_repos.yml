@@ -31,3 +31,4 @@
     - "deb-src https://deb.nodesource.com/node_6.x stretch main"
     - "deb https://apt.syncthing.net/ syncthing stable"
     - "deb http://pkg.tarsnap.com/deb/stretch ./"
+    - "deb http://download.virtualbox.org/virtualbox/debian stretch contrib"
