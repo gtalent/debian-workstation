@@ -29,6 +29,7 @@
     - mgba-qt
     - mosh
     - mumble
+    - neovim-qt
     - nginx
     - nodejs
     - pandoc
