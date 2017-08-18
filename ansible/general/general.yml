@@ -10,6 +10,7 @@
     - /etc/ssh/sshd_config
     - /etc/sudoers
     - /etc/vimrc
+    - /var/www/html/syncthing.html
 
 # setup users and groups
 
