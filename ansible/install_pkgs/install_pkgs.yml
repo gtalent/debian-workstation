@@ -22,6 +22,7 @@
     - gnome-boxes
     - gnome-tweak-tool
     - gnome-tweak-tool
+    - htop
     - jq
     - libfuse-dev
     - llvm
