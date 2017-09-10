@@ -38,6 +38,7 @@
     - python-netaddr
     - python-pip
     - qtcreator
+    - qt5-default
     - redshift-gtk
     - rsync
     - samba
