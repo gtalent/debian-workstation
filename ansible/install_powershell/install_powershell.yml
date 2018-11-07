@@ -1,0 +1,25 @@
+- name: install_powershell | Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: latest
+
+- name: install_powershell | Setup Repository Keys
+  apt_key:
+    url: "{{item}}"
+    state: present
+  with_items:
+    - https://packages.microsoft.com/keys/microsoft.asc
+
+- name: install_powershell | Setup Repositories
+  apt_repository:
+    repo: "{{item}}"
+    state: present
+  with_items:
+    - deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-stretch-prod stretch main
+
+- name: install_powershell | Install Packages
+  apt:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - powershell

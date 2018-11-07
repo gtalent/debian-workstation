@@ -1,0 +1,37 @@
+- name: LLVM | Setup Repository Keys
+  apt_key:
+    url: "{{item}}"
+    state: present
+  with_items:
+    - https://apt.llvm.org/llvm-snapshot.gpg.key
+
+- name: LLVM | Setup Repositories
+  apt_repository:
+    repo: "{{item}}"
+    state: present
+  with_items:
+    - "deb http://apt.llvm.org/stretch/ llvm-toolchain-stretch-7 main"
+    - "deb-src http://apt.llvm.org/stretch/ llvm-toolchain-stretch-7 main"
+
+- name: LLVM | Install Packages
+  apt:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - clang-7
+    - clang-7-doc
+    - clang-format-7 
+    - clang-tools-7
+    - libc++-7-dev
+    - libc++abi-7-dev
+    - libclang-7-dev
+    - libclang-common-7-dev
+    - libclang1-7
+    - libfuzzer-7-dev
+    - libllvm7
+    - lld-7
+    - lldb-7
+    - llvm-7
+    - llvm-7-dev
+    - llvm-7-doc
+    - llvm-7-runtime

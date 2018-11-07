@@ -5,4 +5,7 @@
     upgrade: dist
     update_cache: true
 - include: 'install_pkgs/install_pkgs.yml'
+- include: 'install_powershell/install_powershell.yml'
+- include: 'install_vscode/install_vscode.yml'
+- include: 'llvm/llvm.yml'
 - include: 'general/general.yml'

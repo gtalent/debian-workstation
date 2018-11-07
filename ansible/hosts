@@ -1,6 +1,8 @@
 [workstations]
-andraia.lan
 dixon.lan
+enzo.lan
+
+[openvpn_servers]
 enzo.lan
 
 [plex_servers]

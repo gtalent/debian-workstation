@@ -6,6 +6,7 @@
     state: latest
   with_items:
     - ansible
+    - arc-theme
     - bzr
     - cifs-utils
     - clang
@@ -13,26 +14,28 @@
     - ctags
     - curl
     - dh-golang
+    - dnsutils
     - docker-ce
     - docker-compose
     - ffmpeg
     - firmware-iwlwifi
+    - fonts-firacode
     - fonts-symbola
     - ftp
     - git
     - gnome-boxes
     - gnome-tweak-tool
-    - gnome-tweak-tool
     - htop
     - jq
     - libfuse-dev
+    - libuv1-dev
     - llvm
     - make
-    - mgba-qt
     - mosh
     - mumble
     - neovim-qt
     - nginx
+    - ninja-build
     - nodejs
     - pandoc
     - polari
@@ -52,19 +55,19 @@
     - tmux
     - tree
     - vim-gtk3
-    - virtualbox-5.1
+    - virtualbox-5.2
     - vlc
     - zfs-dkms
     - zfsutils-linux
     - zsh
 
-#- name: install_pkgs | Install Backports Packages
-#  apt:
-#    name: "{{item}}"
-#    state: latest
-#    default_release: stretch-backports
-#  with_items:
-#    - remmina
+- name: install_pkgs | Install Backports Packages
+  apt:
+    name: "{{item}}"
+    state: latest
+    default_release: stretch-backports
+  with_items:
+    - flatpak
 
 # pip packages
 

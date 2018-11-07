@@ -28,8 +28,16 @@
     - "deb http://ftp.debian.org/debian stretch-backports main"
     - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
     - "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
-    - "deb https://deb.nodesource.com/node_6.x stretch main"
-    - "deb-src https://deb.nodesource.com/node_6.x stretch main"
+    - "deb https://deb.nodesource.com/node_10.x stretch main"
+    - "deb-src https://deb.nodesource.com/node_10.x stretch main"
     - "deb https://apt.syncthing.net/ syncthing stable"
     - "deb http://pkg.tarsnap.com/deb/stretch ./"
     - "deb http://download.virtualbox.org/virtualbox/debian stretch contrib"
+
+- name: pkg_repos | Remove Repositories
+  apt_repository:
+    repo: "{{item}}"
+    state: absent
+  with_items:
+    - "deb https://deb.nodesource.com/node_6.x stretch main"
+    - "deb-src https://deb.nodesource.com/node_6.x stretch main"
