@@ -6,7 +6,6 @@
     state: latest
   with_items:
     - ansible
-    - arc-theme
     - bzr
     - cifs-utils
     - ctags
@@ -15,19 +14,13 @@
     - dnsutils
     - docker-ce
     - docker-compose
-    - ffmpeg
-    - firmware-iwlwifi
     - fonts-firacode
     - fonts-symbola
     - ftp
     - git
-    - gnome-boxes
-    - gnome-tweak-tool
     - htop
     - jq
     - libfuse-dev
-    - libuv1-dev
-    - llvm
     - make
     - mosh
     - mumble
@@ -38,9 +31,6 @@
     - polari
     - python-netaddr
     - python-pip
-    - qtcreator
-    - qt5-default
-    - redshift-gtk
     - rsync
     - samba
     - sl
@@ -52,7 +42,6 @@
     - tmux
     - tree
     - vim-gtk3
-    - virtualbox-5.2
     - vlc
     - zfs-dkms
     - zfsutils-linux

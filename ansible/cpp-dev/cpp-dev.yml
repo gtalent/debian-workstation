@@ -1,11 +1,13 @@
-- name: LLVM | Setup Repository Keys
+- include: 'pkg_repos/pkg_repos.yml'
+
+- name: C++ Dev | Setup Repository Keys
   apt_key:
     url: "{{item}}"
     state: present
   with_items:
     - https://apt.llvm.org/llvm-snapshot.gpg.key
 
-- name: LLVM | Setup Repositories
+- name: C++ Dev | Setup Repositories
   apt_repository:
     repo: "{{item}}"
     state: present
@@ -13,7 +15,7 @@
     - "deb http://apt.llvm.org/stretch/ llvm-toolchain-stretch-7 main"
     - "deb-src http://apt.llvm.org/stretch/ llvm-toolchain-stretch-7 main"
 
-- name: LLVM | Install Packages
+- name: C++ Dev | Install Packages
   apt:
     name: "{{item}}"
     state: latest
@@ -35,3 +37,13 @@
     - llvm-7-dev
     - llvm-7-doc
     - llvm-7-runtime
+    - ninja-build
+    - libglu1-mesa-dev # provide OpenGL header file needed by most GUI libraries
+
+- name: C++ Dev | Install Backports Packages
+  apt:
+    name: "{{item}}"
+    state: latest
+    default_release: stretch-backports
+  with_items:
+    - cmake

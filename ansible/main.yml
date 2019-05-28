@@ -1,4 +1,12 @@
 ---
+  - hosts: no-de
+    tasks:
+    - include: 'no-de/no-de.yml'
+
+  - hosts: cpp-dev
+    tasks:
+    - include: 'cpp-dev/cpp-dev.yml'
+
   - hosts: workstations
     tasks:
     - include: 'workstation/workstation.yml'
