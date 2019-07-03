@@ -33,6 +33,7 @@
     - python-pip
     - rsync
     - samba
+    - silversearcher-ag
     - sl
     - sshfs
     - sudo

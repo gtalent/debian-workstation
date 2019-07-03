@@ -7,6 +7,14 @@
     tasks:
     - include: 'cpp-dev/cpp-dev.yml'
 
+  - hosts: icecc-scheduler
+    tasks:
+    - include: 'icecc-node/icecc-node.yml'
+
+  - hosts: icecc-node
+    tasks:
+    - include: 'icecc-node/icecc-node.yml'
+
   - hosts: workstations
     tasks:
     - include: 'workstation/workstation.yml'

@@ -2,6 +2,12 @@
 dixon.lan
 enzo.lan
 
+[icecc-scheduler]
+enzo.lan
+
+[icecc-node]
+dixon.lan
+
 [openvpn_servers]
 enzo.lan
 

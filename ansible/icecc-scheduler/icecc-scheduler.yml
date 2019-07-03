@@ -1,0 +1,15 @@
+- name: icecc-scheduler | Install Packages
+  apt:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - icecc
+
+- name: icecc-scheduler | Enable scheduler
+  service:
+    name: "{{item}}"
+    enabled: yes
+    state: started
+  with_items:
+    - iceccd-scheduler
+

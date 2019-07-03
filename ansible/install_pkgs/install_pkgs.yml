@@ -14,7 +14,6 @@
     - dh-golang
     - dnsutils
     - docker-ce
-    - docker-compose
     - ffmpeg
     - firmware-iwlwifi
     - fonts-firacode
@@ -43,6 +42,7 @@
     - redshift-gtk
     - rsync
     - samba
+    - silversearcher-ag
     - sl
     - sshfs
     - sudo
@@ -64,6 +64,7 @@
     state: latest
     default_release: stretch-backports
   with_items:
+    - docker-compose
     - flatpak
     - golang
     - neovim

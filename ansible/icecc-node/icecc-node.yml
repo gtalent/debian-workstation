@@ -1,0 +1,15 @@
+- name: icecc-node | Install Packages
+  apt:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - icecc
+
+- name: icecc-node | Enable iceccd
+  service:
+    name: "{{item}}"
+    enabled: yes
+    state: started
+  with_items:
+    - iceccd
+
