@@ -13,7 +13,6 @@
     - dh-golang
     - dnsutils
     - docker-ce
-    - docker-compose
     - fonts-firacode
     - fonts-symbola
     - ftp
@@ -44,16 +43,9 @@
     - tree
     - vim-gtk3
     - vlc
-    - zfs-dkms
-    - zfsutils-linux
     - zsh
-
-- name: install_pkgs | Install Backports Packages
-  apt:
-    name: "{{item}}"
-    state: latest
-    default_release: stretch-backports
-  with_items:
+   # these will likely move to backports
+    - docker-compose
     - flatpak
     - golang
     - neovim

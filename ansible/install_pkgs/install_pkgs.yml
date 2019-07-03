@@ -47,29 +47,27 @@
     - sshfs
     - sudo
     - syncthing
-    - tarsnap
     - tig
     - tmux
     - tree
     - vim-gtk3
     - virtualbox-5.2
     - vlc
-    - zfs-dkms
-    - zfsutils-linux
     - zsh
-
-- name: install_pkgs | Install Backports Packages
-  apt:
-    name: "{{item}}"
-    state: latest
-    default_release: stretch-backports
-  with_items:
+   # these will likely move to backports
     - docker-compose
     - flatpak
     - golang
     - neovim
     - neovim-runtime
     - remmina
+
+#- name: install_pkgs | Install Backports Packages
+#  apt:
+#    name: "{{item}}"
+#    state: latest
+#    default_release: stretch-backports
+#  with_items:
 
 # pip packages
 

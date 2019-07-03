@@ -9,10 +9,8 @@
     state: present
   with_items:
     - https://download.docker.com/linux/debian/gpg
-    - https://dl-ssl.google.com/linux/linux_signing_key.pub
     - https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     - https://syncthing.net/release-key.txt
-    - https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
     - https://www.virtualbox.org/download/oracle_vbox_2016.asc
     - https://www.virtualbox.org/download/oracle_vbox.asc
 
@@ -21,23 +19,8 @@
     repo: "{{item}}"
     state: present
   with_items:
-    - "deb http://security.debian.org/debian-security stretch/updates contrib non-free"
-    - "deb-src http://security.debian.org/debian-security stretch/updates contrib non-free"
-    - "deb http://ftp.us.debian.org/debian stretch contrib non-free"
-    - "deb-src http://ftp.us.debian.org/debian stretch contrib non-free"
-    - "deb http://ftp.debian.org/debian stretch-backports main"
-    - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
-    - "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
-    - "deb https://deb.nodesource.com/node_10.x stretch main"
-    - "deb-src https://deb.nodesource.com/node_10.x stretch main"
+    - "deb [arch=amd64] https://download.docker.com/linux/debian buster stable"
+    - "deb https://deb.nodesource.com/node_10.x buster main"
+    - "deb-src https://deb.nodesource.com/node_10.x buster main"
     - "deb https://apt.syncthing.net/ syncthing stable"
-    - "deb http://pkg.tarsnap.com/deb/stretch ./"
-    - "deb http://download.virtualbox.org/virtualbox/debian stretch contrib"
-
-- name: pkg_repos | Remove Repositories
-  apt_repository:
-    repo: "{{item}}"
-    state: absent
-  with_items:
-    - "deb https://deb.nodesource.com/node_6.x stretch main"
-    - "deb-src https://deb.nodesource.com/node_6.x stretch main"
+    - "deb http://download.virtualbox.org/virtualbox/debian buster contrib"

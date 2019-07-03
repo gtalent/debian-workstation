@@ -1,15 +1,10 @@
 [workstations]
-dixon.lan
-enzo.lan
+andraia
 
 [icecc-scheduler]
-enzo.lan
 
 [icecc-node]
-dixon.lan
 
 [openvpn_servers]
-enzo.lan
 
 [plex_servers]
-enzo.lan
