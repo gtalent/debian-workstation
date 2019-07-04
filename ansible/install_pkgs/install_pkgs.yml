@@ -51,7 +51,6 @@
     - tmux
     - tree
     - vim-gtk3
-    - virtualbox-5.2
     - vlc
     - zsh
    # these will likely move to backports
