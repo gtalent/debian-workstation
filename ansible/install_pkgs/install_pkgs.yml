@@ -2,64 +2,63 @@
 
 - name: install_pkgs | Install Packages
   apt:
-    name: "{{item}}"
+    name:
+      - ansible
+      - arc-theme
+      - bzr
+      - cifs-utils
+      - ctags
+      - curl
+      - dh-golang
+      - dnsutils
+      - docker-ce
+      - ffmpeg
+      - firmware-iwlwifi
+      - fonts-firacode
+      - fonts-symbola
+      - ftp
+      - git
+      - gnome-boxes
+      - gnome-tweak-tool
+      - htop
+      - jq
+      - libfuse-dev
+      - libuv1-dev
+      - llvm
+      - make
+      - mosh
+      - mumble
+      - neovim-qt
+      - nginx
+      - nodejs
+      - pandoc
+      - polari
+      - python-netaddr
+      - python-pip
+      - qtcreator
+      - qt5-default
+      - redshift-gtk
+      - rsync
+      - samba
+      - silversearcher-ag
+      - sl
+      - sshfs
+      - sudo
+      - syncthing
+      - tig
+      - tmux
+      - tree
+      - vim-gtk3
+      - vlc
+      - zsh
+      # these will likely move to backports
+      - docker-compose
+      - flatpak
+      - golang
+      - neovim
+      - neovim-runtime
+      - remmina
     state: latest
-  with_items:
-    - ansible
-    - arc-theme
-    - bzr
-    - cifs-utils
-    - ctags
-    - curl
-    - dh-golang
-    - dnsutils
-    - docker-ce
-    - ffmpeg
-    - firmware-iwlwifi
-    - fonts-firacode
-    - fonts-symbola
-    - ftp
-    - git
-    - gnome-boxes
-    - gnome-tweak-tool
-    - htop
-    - jq
-    - libfuse-dev
-    - libuv1-dev
-    - llvm
-    - make
-    - mosh
-    - mumble
-    - neovim-qt
-    - nginx
-    - nodejs
-    - pandoc
-    - polari
-    - python-netaddr
-    - python-pip
-    - qtcreator
-    - qt5-default
-    - redshift-gtk
-    - rsync
-    - samba
-    - silversearcher-ag
-    - sl
-    - sshfs
-    - sudo
-    - syncthing
-    - tig
-    - tmux
-    - tree
-    - vim-gtk3
-    - vlc
-    - zsh
-   # these will likely move to backports
-    - docker-compose
-    - flatpak
-    - golang
-    - neovim
-    - neovim-runtime
-    - remmina
 
 #- name: install_pkgs | Install Backports Packages
 #  apt:
@@ -72,6 +71,5 @@
 
 - name: install_pkgs | yq - YAML Query
   pip:
-    name: "{{item}}"
-  with_items:
-    - yq
+    name:
+      - yq

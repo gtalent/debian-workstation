@@ -1,6 +1,10 @@
 [workstations]
 andraia
 
+[no-de]
+
+[cpp-dev]
+
 [icecc-scheduler]
 
 [icecc-node]
